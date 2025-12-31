@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026 | SubroutiX</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #ffc107;
+            --success-color: #198754;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .celebratory-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        
+        .countdown-box {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        
+        .countdown-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .countdown-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px;
+            animation: explode 2s infinite;
+        }
+        
+        @keyframes explode {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            50% { opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 0; }
+        }
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .subroutix-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+        
+        .year-2026 {
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ffc107, #ff6b08, #ffc107);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(255, 107, 8, 0.5);
+            line-height: 1;
+        }
+        
+        .btn-celebrate {
+            background: linear-gradient(45deg, #ffc107, #ff6b08);
+            border: none;
+            color: #212529;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 107, 8, 0.3);
+        }
+        
+        .btn-celebrate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 8, 0.5);
+            color: #212529;
+        }
+        
+        .resolution-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            height: 100%;
+            border-top: 3px solid var(--success-color);
+            transition: all 0.3s;
+        }
+        
+        .resolution-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            opacity: 0;
+            z-index: -1;
+        }
+        
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px 0;
+            border-top: 2px solid var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .year-2026 {
+                font-size: 4rem;
+            }
+            
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+            
+            .subroutix-logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fireworks Background -->
+    <div class="fireworks-container" id="fireworks"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <h1 class="subroutix-logo mb-4">SubroutiX</h1>
+                    <h2 class="display-4 fw-bold mb-3">Wishing You A</h2>
+                    <div class="year-2026 celebratory-font mb-4">2026</div>
+                    <h3 class="display-5 mb-5">Happy New Year!</h3>
+                    <p class="lead fs-4 mb-5">May the coming year bring you joy, success, and endless possibilities. Cheers to new beginnings!</p>
+                    <button class="btn btn-celebrate btn-lg mb-5" id="celebrateBtn">
+                        <i class="bi bi-fire me-2"></i>Start Celebration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Countdown Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="countdown-container">
+                        <h3 class="text-center mb-4">Countdown to New Year 2026</h3>
+                        <div class="row text-center">
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="countdown-box">
+                                    <div class="countdown-number" id="days">00</div>
+                                    <div class="countdown-label">Days</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="countdown-box">
+                                    <div class="countdown-number" id="hours">00</div>
+                                    <div class="countdown-label">Hours</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="countdown-box">
+                                    <div class="countdown-number" id="minutes">00</div>
+                                    <div class="countdown-label">Minutes</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-4">
+                                <div class="countdown-box">
+                                    <div class="countdown-number" id="seconds">00</div>
+                                    <div class="countdown-label">Seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3" id="countdownMessage">Counting down to January 1, 2026!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Year Message Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="message-card">
+                        <h3 class="text-center mb-4 celebratory-font fs-1">A Message from SubroutiX</h3>
+                        <p class="fs-5">As we step into 2026, we want to express our heartfelt gratitude for your continued support. This new year marks a fresh chapter filled with opportunities for growth, innovation, and success.</p>
+                        <p class="fs-5">At SubroutiX, we believe that the future is built on the foundations of today. Let's embrace 2026 with optimism, determination, and the courage to chase our biggest dreams.</p>
+                        <p class="fs-5 text-center fw-bold mt-4">Here's to a year of breakthroughs, happiness, and shared successes!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Year Resolutions Section -->
+    <section class="py-5">
+        <div class="container">
+            <h3 class="text-center mb-5">New Year Resolutions for 2026</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="resolution-card">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-lightbulb fs-1 text-warning"></i>
+                        </div>
+                        <h4 class="text-center">Innovate</h4>
+                        <p class="text-center">Embrace new ideas and technologies to create innovative solutions for tomorrow's challenges.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="resolution-card">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-people fs-1 text-info"></i>
+                        </div>
+                        <h4 class="text-center">Collaborate</h4>
+                        <p class="text-center">Build stronger connections and work together to achieve greater heights in the coming year.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="resolution-card">
+                        <div class="text-center mb-3">
+                            <i class="bi bi-graph-up-arrow fs-1 text-success"></i>
+                        </div>
+                        <h4 class="text-center">Grow</h4>
+                        <p class="text-center">Focus on personal and professional growth to unlock your full potential in 2026.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h4 class="subroutix-logo mb-3">SubroutiX</h4>
+                    <p>Wishing you a prosperous and joyful New Year 2026!</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-2">Connect with us:</p>
+                    <div class="d-flex justify-content-center justify-content-md-end">
+                        <a href="#" class="btn btn-outline-warning btn-sm mx-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-warning btn-sm mx-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-warning btn-sm mx-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-warning btn-sm mx-2"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <p class="mt-3">© 2025-2026 SubroutiX. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Create fireworks
+        function createFireworks() {
+            const container = document.getElementById('fireworks');
+            const colors = ['#ffc107', '#ff6b08', '#dc3545', '#0d6efd', '#198754'];
+            
+            for (let i = 0; i < 50; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                
+                // Random properties
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 5 + 3;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 2;
+                const duration = Math.random() * 1 + 1.5;
+                
+                firework.style.backgroundColor = color;
+                firework.style.width = `${size}px`;
+                firework.style.height = `${size}px`;
+                firework.style.left = `${left}vw`;
+                firework.style.animationDelay = `${delay}s`;
+                firework.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(firework);
+            }
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#ffc107', '#ff6b08', '#dc3545', '#0d6efd', '#198754', '#ffffff'];
+            
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random properties
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 10 + 5;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 3 + 2;
+                const animationDelay = Math.random() * 2;
+                
+                confetti.style.backgroundColor = color;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.left = `${left}vw`;
+                confetti.style.top = `-20px`;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                
+                // Add to body
+                document.body.appendChild(confetti);
+                
+                // Animate
+                setTimeout(() => {
+                    confetti.style.opacity = '1';
+                    confetti.style.transform = `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 720}deg)`;
+                    confetti.style.transition = `all ${animationDuration}s cubic-bezier(0.1, 0.8, 0.3, 1) ${animationDelay}s`;
+                }, 10);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, (animationDuration + animationDelay) * 1000 + 100);
+            }
+        }
+        
+        // Countdown to New Year 2026
+        function updateCountdown() {
+            const now = new Date();
+            const newYear = new Date(now.getFullYear() + 1, 0, 1); // January 1 of next year
+            
+            // If we're already in 2026, calculate to 2027
+            if (now.getFullYear() >= 2026) {
+                newYear.setFullYear(2027);
+            }
+            
+            const diff = newYear - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Update message
+            const messageElement = document.getElementById('countdownMessage');
+            if (days === 0 && hours < 24) {
+                messageElement.textContent = "New Year 2026 is almost here! Get ready to celebrate!";
+                messageElement.classList.add('text-warning', 'fw-bold');
+            } else {
+                messageElement.textContent = `Counting down to January 1, ${newYear.getFullYear()}!`;
+                messageElement.classList.remove('text-warning', 'fw-bold');
+            }
+        }
+        
+        // Celebration button event
+        document.getElementById('celebrateBtn').addEventListener('click', function() {
+            createConfetti();
+            
+            // Change button text temporarily
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="bi bi-emoji-laughing me-2"></i>Happy New Year 2026!';
+            this.disabled = true;
+            
+            // Play celebration sound (if allowed by browser)
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                playCelebrationSound(audioContext);
+            } catch (e) {
+                console.log("Audio context not supported");
+            }
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.disabled = false;
+            }, 3000);
+        });
+        
+        // Simple celebration sound using Web Audio API
+        function playCelebrationSound(audioContext) {
+            // Create oscillator for a festive sound
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            // Festive frequency pattern
+            oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+            oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+            oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+            oscillator.frequency.setValueAtTime(1046.50, audioContext.currentTime + 0.3); // C6
+            
+            // Volume envelope
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.05);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+        
+        // Initialize the page
+        window.addEventListener('DOMContentLoaded', () => {
+            createFireworks();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
